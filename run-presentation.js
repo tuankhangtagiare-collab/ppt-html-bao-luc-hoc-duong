@@ -27,7 +27,8 @@ async function start() {
       root: process.cwd(),
       server: {
         port,
-        host: '0.0.0.0'
+        host: '0.0.0.0',
+        allowedHosts: true
       }
     });
 

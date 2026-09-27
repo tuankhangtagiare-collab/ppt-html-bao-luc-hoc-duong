@@ -6,11 +6,13 @@ export default defineConfig({
   server: {
     port,
     host: '0.0.0.0',
+    allowedHosts: true,
     strictPort: false
   },
   preview: {
     port,
     host: '0.0.0.0',
+    allowedHosts: true,
     strictPort: false
   },
   build: {
