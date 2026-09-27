@@ -1,0 +1,56 @@
+/* styles/morph.css — Master Shared Element Morph System (Keynote / PowerPoint Magic Move) */
+
+#morph-stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 99999;
+  contain: layout style;
+  isolation: isolate;
+}
+
+/* Floating Morph Item: Pure transparent moving viewport, zero artificial borders */
+.morph-floating-item {
+  position: fixed !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 99999 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  will-change: left, top, width, height, opacity;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.morph-floating-item *,
+.morph-floating-item *::before,
+.morph-floating-item *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Slide in Measuring Mode: Used only for layout computation (never visible to user) */
+.slide.morph-measuring {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.slide.morph-measuring * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}

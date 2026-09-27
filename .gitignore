@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Production build output
+dist/
+
+# Local generated images (using online CDN URLs instead)
+public/images/
+assets/images/
+
+# System and logs
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,30 @@
+{
+  "name": "school-violence-presentation",
+  "version": "1.0.0",
+  "description": "Bạo Lực Học Đường - HTML Web Presentation Engine cao cấp với 3D & Morph Transition",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "node run-presentation.js",
+    "serve": "vite --port 5173",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "open": "^10.1.0"
+  },
+  "keywords": [
+    "presentation",
+    "morph",
+    "threejs",
+    "school-violence",
+    "interactive",
+    "web-slides"
+  ],
+  "author": "Antigravity Creative Presentation Engine",
+  "license": "MIT"
+}

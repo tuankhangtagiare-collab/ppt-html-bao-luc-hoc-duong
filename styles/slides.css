@@ -1,0 +1,1684 @@
+/* ==========================================================================
+   SLIDES.CSS — Presentation Slide Layouts, Staggered Motion & Responsive Typography
+   ========================================================================== */
+
+/* Universal Slide Presentation Frame */
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: clamp(2rem, 4.5vh, 3.5rem) clamp(2.5rem, 5vw, 4.5rem) clamp(3rem, 6vh, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.45s ease, transform 0.5s var(--ease-morph), visibility 0.45s ease;
+  z-index: 10;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+  z-index: 20;
+}
+
+.slide.prev {
+  transform: translate3d(-30px, 0, 0);
+}
+
+.slide.next {
+  transform: translate3d(30px, 0, 0);
+}
+
+/* Slide Content Wrap — Constrained & Vertically Balanced */
+.slide-content-wrap {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: calc(100vh - clamp(4.5rem, 9vh, 6.5rem));
+  justify-content: center;
+  gap: clamp(1rem, 2.2vh, 2rem);
+  position: relative;
+  z-index: 15;
+}
+
+/* ==========================================================================
+   CHOREOGRAPHED STAGGERED ENTRANCE ANIMATIONS (BEAUTIFUL & CLEARLY VISIBLE)
+   ========================================================================== */
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -24px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-28px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Fluid, cinematic elegant card entrance (Xuất hiện mượt mà từng mục) */
+@keyframes slideCardEntrance {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Horizontal slide-in with spring for vertical lists & pillars */
+@keyframes slideCardFromLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-60px, 0, 0) scale(0.93);
+  }
+  65% {
+    opacity: 1;
+  }
+  82% {
+    transform: translate3d(5px, 0, 0) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes slideCardFromRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(60px, 0, 0) scale(0.93);
+  }
+  65% {
+    opacity: 1;
+  }
+  82% {
+    transform: translate3d(-5px, 0, 0) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* Pop-in animation for icons and badges */
+@keyframes popInBadge {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-15deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.22) rotate(4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Laser path connecting line animation */
+@keyframes laserLineGrow {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInItem {
+  0% {
+    opacity: 0;
+    transform: translate3d(-18px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Base hidden state for all staggered elements */
+.stagger-1,
+.stagger-2,
+.stagger-3,
+.stagger-4,
+.stagger-5,
+.stagger-6,
+.stagger-7,
+.stagger-8,
+.stagger-item,
+.anim-header,
+.anim-banner {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* STAGGER ANIMATIONS TRIGERRED BY .play-stagger CLASS */
+.slide.play-stagger .anim-header { animation: slideDownFade 0.9s cubic-bezier(0.2, 0.9, 0.3, 1) 0.1s both; }
+.slide.play-stagger .anim-banner { animation: fadeInLeft 0.9s cubic-bezier(0.2, 0.9, 0.3, 1) 0.2s both; }
+
+.slide.play-stagger .stagger-1 { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 0.15s both; }
+.slide.play-stagger .stagger-2 { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 0.3s both; }
+.slide.play-stagger .stagger-3 { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 0.45s both; }
+.slide.play-stagger .stagger-4 { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 0.6s both; }
+.slide.play-stagger .stagger-5 { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 0.75s both; }
+.slide.play-stagger .stagger-6 { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 0.9s both; }
+.slide.play-stagger .stagger-7 { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 1.05s both; }
+.slide.play-stagger .stagger-8 { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 1.2s both; }
+.slide.play-stagger .stagger-item { animation: slideCardEntrance 1s cubic-bezier(0.2, 0.9, 0.3, 1) 0.3s both; }
+
+/* Removed prefers-reduced-motion to guarantee animations play for the user */
+
+/* ==========================================================================
+   TYPOGRAPHY HIERARCHY (COMPACT & OVERFLOW-PROOF)
+   ========================================================================== */
+.slide-category-tag {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.4rem;
+  padding: 0.25rem 0.8rem;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: 999px;
+  width: fit-content;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+}
+
+.slide-category-tag::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor;
+  animation: radarBeacon 1.8s ease-in-out infinite;
+}
+
+@keyframes radarBeacon {
+  0% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 4px currentColor; }
+  50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 14px currentColor, 0 0 20px currentColor; }
+  100% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 4px currentColor; }
+}
+
+.slide-title-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.4vw, 4.4rem);
+  font-weight: 850;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.45);
+  margin-bottom: 0.8rem;
+}
+
+.slide-title-section {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.slide-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  max-width: 800px;
+}
+
+.slide-quote-banner {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.15vw, 1.15rem);
+  font-style: italic;
+  font-weight: 500;
+  color: #e2e8f0;
+  padding: 0.65rem 1.4rem;
+  border-left: 3px solid var(--accent-crimson);
+  background: rgba(239, 68, 68, 0.08);
+  border-radius: 0 12px 12px 0;
+  backdrop-filter: blur(12px);
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-quote-banner:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.slide-quote-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 0 12px #fff;
+  animation: bannerGlowPulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes bannerGlowPulse {
+  0% { opacity: 0.4; filter: drop-shadow(0 0 2px var(--accent-cyan)); }
+  100% { opacity: 1; filter: drop-shadow(0 0 10px var(--accent-cyan)); }
+}
+
+/* Glassmorphic Visual Cards */
+.glass-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.72) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  contain: paint;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* During Morph: remove expensive backdrop processing to maintain 120 FPS */
+.morph-floating-item,
+.morph-floating-item *,
+.morph-clone.glass-card,
+.morph-clone .glass-card {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+}
+
+.glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 18px 40px rgba(6, 182, 212, 0.2);
+}
+
+/* Fallback & Visual Media */
+.slide-external-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  opacity: 1 !important;
+  z-index: 2;
+  transition: transform 0.6s ease;
+}
+
+/* Universal Cinematic Hero / Visual Card with AI Image & Badge */
+.hero-visual-card {
+  position: relative;
+  width: 100%;
+  height: clamp(340px, 54vh, 500px);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: radial-gradient(circle at 50% 40%, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: clamp(1.2rem, 2vh, 1.8rem);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(6, 182, 212, 0.2);
+  will-change: transform;
+  contain: paint;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  animation: heroCardFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes heroCardFloat {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, -6px, 0); }
+}
+
+.hero-visual-card:hover {
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.75), 0 0 45px rgba(6, 182, 212, 0.35);
+}
+
+.hero-visual-card:hover .slide-external-img {
+  transform: scale(1.045);
+}
+
+/* Glass Sheen Sweep Reflection */
+.hero-visual-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.07) 50%,
+    transparent 58%
+  );
+  transform: rotate(25deg);
+  animation: glassSheenSweep 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@keyframes glassSheenSweep {
+  0% { transform: translateY(-130%) rotate(25deg); }
+  35%, 100% { transform: translateY(130%) rotate(25deg); }
+}
+
+.hero-visual-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 15, 30, 0.92) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-visual-card .hero-silhouette-badge {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+/* 2-Column Split Presentation Layouts (Text & Cards Left, Visual Right) */
+.slide-two-col-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1.8rem, 3.5vw, 3.5rem);
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.slide-two-col-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(0.8rem, 1.8vh, 1.5rem);
+  height: 100%;
+}
+
+.slide-two-col-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* ==========================================================================
+   SLIDE 01: HERO OPENING
+   ========================================================================== */
+.slide-01-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  height: 100%;
+}
+
+.slide-01-hero-card {
+  position: relative;
+  height: clamp(320px, 54vh, 500px);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: radial-gradient(circle at 50% 40%, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(6, 182, 212, 0.2);
+}
+
+.slide-01-hero-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.88) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-silhouette-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  z-index: 6;
+}
+
+.hero-shield-svg {
+  width: clamp(75px, 10vw, 100px);
+  height: clamp(75px, 10vw, 100px);
+  filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.6));
+}
+
+.hero-student-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.45rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--bg-glass-border);
+}
+
+/* ==========================================================================
+   SLIDE 02: 4 CATEGORIES (THỂ CHẤT, TINH THẦN, TRÊN MẠNG, VẬT CHẤT)
+   ========================================================================== */
+.slide-02-layout {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+  height: 100%;
+  justify-content: center;
+}
+
+.definition-glass-bar {
+  padding: 0.9rem 1.6rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.definition-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--accent-crimson);
+  color: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.definition-text {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+.category-card {
+  padding: clamp(1.2rem, 2.2vh, 1.8rem) clamp(1rem, 1.4vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+  max-height: clamp(200px, 32vh, 280px);
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease;
+  cursor: default;
+}
+
+.category-card:hover {
+  transform: translate3d(0, -4px, 0);
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.category-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-crimson);
+  opacity: 0.8;
+}
+
+.category-card:nth-child(2)::after { background: var(--accent-amber); }
+.category-card:nth-child(3)::after { background: var(--accent-cyan); }
+.category-card:nth-child(4)::after { background: var(--accent-blue); }
+
+.category-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.category-badge-num {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 0.18rem 0.5rem;
+  border-radius: 6px;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover .category-badge-num {
+  transform: scale(1.12);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.4);
+}
+
+.category-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.category-icon-wrapper svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.35s ease;
+}
+
+.category-card:hover .category-icon-wrapper {
+  transform: scale(1.12) rotate(4deg);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+}
+
+.category-card:hover .category-icon-wrapper svg {
+  transform: scale(1.1);
+}
+
+.category-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.category-card:hover .category-card-title {
+  color: var(--accent-cyan);
+}
+
+.category-card-desc {
+  font-size: clamp(0.82rem, 1vw, 0.92rem);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   SLIDE 03: SPATIAL CORRIDOR FLOW
+   ========================================================================== */
+.slide-03-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+}
+
+.corridor-flow-chain {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  position: relative;
+}
+
+.corridor-flow-chain::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.8), rgba(239, 68, 68, 0.8));
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.flow-node-card {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.2rem, 2vh, 1.6rem) 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-height: clamp(180px, 28vh, 240px);
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.flow-node-card:hover {
+  transform: translate3d(0, -4px, 0);
+  background: rgba(30, 41, 59, 0.85);
+}
+
+.flow-node-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+}
+
+.flow-node-card:last-child .flow-node-icon {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: var(--accent-crimson);
+}
+
+.flow-node-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.flow-node-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.spatial-highlight-box {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  padding: 1rem 1.8rem;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.spatial-highlight-main {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  font-weight: 700;
+  color: #fff;
+}
+
+.spatial-highlight-sub {
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  color: var(--accent-cyan);
+}
+
+/* ==========================================================================
+   SLIDE 04: WHY? ROOT CAUSES TRIAD
+   ========================================================================== */
+.slide-04-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+}
+
+.causes-triad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.cause-card {
+  padding: clamp(1.4rem, 2.4vh, 2rem) clamp(1.2rem, 1.6vw, 1.8rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 18px;
+  max-height: clamp(220px, 36vh, 320px);
+}
+
+.cause-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.cause-badge-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid var(--accent-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-amber);
+  flex-shrink: 0;
+}
+
+.cause-card:nth-child(1) .cause-badge-icon { background: rgba(239, 68, 68, 0.12); border-color: var(--accent-crimson); color: var(--accent-crimson); }
+.cause-card:nth-child(3) .cause-badge-icon { background: rgba(6, 182, 212, 0.12); border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+.cause-card-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  font-weight: 800;
+  color: #fff;
+}
+
+.cause-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.cause-list li {
+  position: relative;
+  padding-left: 1.3rem;
+  font-size: clamp(0.85rem, 1.05vw, 0.95rem);
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.cause-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   SLIDE 05: WARNING SIGNS
+   ========================================================================== */
+.slide-05-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+  align-items: center;
+  height: 100%;
+}
+
+.warning-signs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.warning-sign-pill {
+  padding: 0.9rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-radius: 14px;
+}
+
+.warning-sign-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+.warning-sign-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.student-orbit-center {
+  height: clamp(260px, 48vh, 440px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   SLIDE 06: CONSEQUENCES
+   ========================================================================== */
+.slide-06-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+}
+
+.consequence-columns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.consequence-col {
+  padding: clamp(1.3rem, 2.2vh, 1.8rem) clamp(1.1rem, 1.5vw, 1.6rem);
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  position: relative;
+  max-height: clamp(220px, 36vh, 320px);
+}
+
+.consequence-col-header {
+  margin-bottom: 0.85rem;
+}
+
+.consequence-role-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.consequence-col.victim .consequence-role-tag { background: rgba(239, 68, 68, 0.15); color: var(--accent-crimson); }
+.consequence-col.bully .consequence-role-tag { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+.consequence-col.community .consequence-role-tag { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
+
+.consequence-role-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+  font-weight: 800;
+  color: #fff;
+}
+
+.consequence-points-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.consequence-points-list li {
+  font-size: clamp(0.82rem, 1vw, 0.9rem);
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   SLIDE 07: CYBERBULLYING
+   ========================================================================== */
+.slide-07-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+  align-items: center;
+  height: 100%;
+}
+
+.phone-mockup-wrapper {
+  position: relative;
+  height: clamp(280px, 50vh, 460px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-mockup-3d {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.cyber-toxic-bubbles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.toxic-bubble-item {
+  padding: 0.75rem 1.15rem;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  font-weight: 700;
+  color: #fca5a5;
+  transition: transform 0.25s ease;
+}
+
+.toxic-bubble-item:hover {
+  transform: translateX(6px);
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* ==========================================================================
+   SLIDE 08: DO / DON'T
+   ========================================================================== */
+.slide-08-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+}
+
+.dodont-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+.dodont-card {
+  padding: clamp(1.4rem, 2.5vh, 2rem);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: clamp(230px, 38vh, 340px);
+}
+
+.dodont-card.dont {
+  border-top: 3px solid var(--accent-crimson);
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.08) 0%, rgba(15, 23, 42, 0.8) 100%);
+}
+
+.dodont-card.do {
+  border-top: 3px solid var(--accent-green);
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(15, 23, 42, 0.8) 100%);
+}
+
+.dodont-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.dodont-card.dont .dodont-title { color: var(--accent-crimson); }
+.dodont-card.do .dodont-title { color: var(--accent-green); }
+
+.dodont-items-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.dodont-items-list li {
+  font-size: clamp(0.85rem, 1.05vw, 0.98rem);
+  line-height: 1.45;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.dodont-item-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.dodont-card.dont .dodont-item-icon { background: rgba(239, 68, 68, 0.2); color: var(--accent-crimson); }
+.dodont-card.do .dodont-item-icon { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+
+/* ==========================================================================
+   SLIDE 09: 4 STEPS SAFETY PATHWAY (FIXED VERTICAL OVERFLOW & ELEVATED DESIGN)
+   ========================================================================== */
+.slide-09-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+}
+
+.pathway-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+.pathway-steps-grid-2x2,
+.categories-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.75rem, 1.2vw, 1.1rem);
+}
+
+.pathway-steps-grid-2x2 .pathway-step-card,
+.categories-grid-2x2 .category-card {
+  padding: clamp(0.9rem, 1.6vh, 1.3rem) clamp(0.9rem, 1.2vw, 1.2rem);
+  max-height: none;
+  min-height: clamp(120px, 18vh, 160px);
+}
+
+.pathway-step-card {
+  padding: clamp(1rem, 1.8vh, 1.4rem) clamp(1rem, 1.4vw, 1.4rem);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(120px, 18vh, 160px);
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+  cursor: default;
+}
+
+.pathway-step-card:hover {
+  border-color: rgba(56, 189, 248, 0.65);
+  box-shadow: 0 18px 45px rgba(6, 182, 212, 0.35), 0 0 25px rgba(56, 189, 248, 0.2);
+  transform: translate3d(0, -6px, 0) scale(1.025) !important;
+}
+
+.pathway-step-number {
+  font-family: var(--font-mono);
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 850;
+  color: #38bdf8;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
+  display: inline-block;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.pathway-step-card:hover .pathway-step-number {
+  transform: scale(1.15);
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.95);
+}
+
+.pathway-step-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.pathway-step-detail {
+  font-size: clamp(0.82rem, 1vw, 0.92rem);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   SLIDE 10: 3 UNITED PILLARS
+   ========================================================================== */
+.slide-10-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+}
+
+.pillars-alliance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.alliance-pillar-card {
+  padding: clamp(1.3rem, 2.2vh, 1.8rem) clamp(1.1rem, 1.5vw, 1.6rem);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-top: 3px solid var(--accent-green);
+  max-height: clamp(230px, 36vh, 320px);
+}
+
+.pillar-name-tag {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  font-weight: 800;
+  color: #fff;
+}
+
+.pillar-role-subtitle {
+  font-size: 0.82rem;
+  color: var(--accent-green);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pillar-actions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.pillar-actions-list li {
+  font-size: clamp(0.82rem, 1vw, 0.9rem);
+  line-height: 1.45;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.pillar-actions-list li::before {
+  content: '✓';
+  color: var(--accent-green);
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   SLIDE 11: 3 KHÔNG — 3 NÊN (THE CENTRAL SHIELD)
+   ========================================================================== */
+.slide-11-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+}
+
+.rules-shield-stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: clamp(1.2rem, 2vw, 2rem);
+}
+
+.rules-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rule-pill-box {
+  padding: 0.9rem 1.4rem;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.rule-pill-box.dont {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.rule-pill-box.do {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+.shield-center-pod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  text-align: center;
+}
+
+.emblem-shield-svg {
+  width: clamp(75px, 10vw, 110px);
+  height: clamp(75px, 10vw, 110px);
+  filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.6));
+}
+
+.bottom-rules-tagline {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--bg-glass-border);
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   SLIDE 12: FINALE (RADIENT DAWN OF SAFETY)
+   ========================================================================== */
+.slide-12-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  gap: clamp(1rem, 2.5vh, 2rem);
+}
+
+.finale-declarations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.finale-claim {
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.finale-imperatives {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 1.8vw, 1.6rem);
+  flex-wrap: wrap;
+  margin: 0.8rem 0;
+}
+
+.imperative-pill {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.8vw, 1.65rem);
+  font-weight: 850;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.imperative-pill:nth-child(1) {
+  background: var(--accent-crimson);
+  color: #fff;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.45);
+}
+
+.imperative-pill:nth-child(2) {
+  background: var(--accent-cyan);
+  color: var(--text-inverted);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.45);
+}
+
+.imperative-pill:nth-child(3) {
+  background: var(--accent-green);
+  color: var(--text-inverted);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.45);
+}
+
+.closing-quote-banner {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-style: italic;
+  color: #94a3b8;
+  max-width: 680px;
+}
+
+/* ==========================================================================
+   INTERACTIVE GAMIFIED QUIZ SYSTEM (CÂU HỎI TƯƠNG TÁC A - B - C - D)
+   ========================================================================== */
+.interactive-quiz-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.7rem, 1.5vh, 1.1rem);
+  width: 100%;
+}
+
+.quiz-progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.1rem;
+}
+
+.quiz-pill-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+}
+
+.quiz-dots-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.quiz-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.quiz-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.quiz-dot.completed {
+  background: #10b981;
+}
+
+.quiz-question-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* 4 Options Grid (2x2 Layout for optimal spatial balance) */
+.quiz-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.55rem, 1.2vh, 0.85rem);
+}
+
+.quiz-option-btn {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.88) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: clamp(0.75rem, 1.4vh, 1.1rem) clamp(0.85rem, 1.2vw, 1.2rem);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  color: #e2e8f0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  font-family: inherit;
+}
+
+.quiz-option-btn:hover:not(:disabled) {
+  transform: translate3d(0, -4px, 0) scale(1.015);
+  border-color: rgba(56, 189, 248, 0.6);
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.95) 0%, rgba(14, 165, 233, 0.15) 100%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.25);
+}
+
+/* Option Letter Badges (A, B, C, D) */
+.quiz-letter {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 850;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-option-btn:nth-child(1) .quiz-letter {
+  background: rgba(14, 165, 233, 0.15);
+  border: 1px solid rgba(14, 165, 233, 0.4);
+  color: #38bdf8;
+}
+
+.quiz-option-btn:nth-child(2) .quiz-letter {
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+}
+
+.quiz-option-btn:nth-child(3) .quiz-letter {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.quiz-option-btn:nth-child(4) .quiz-letter {
+  background: rgba(236, 72, 153, 0.15);
+  border: 1px solid rgba(236, 72, 153, 0.4);
+  color: #f472b6;
+}
+
+.quiz-option-btn:hover:not(:disabled) .quiz-letter {
+  transform: scale(1.12) rotate(4deg);
+}
+
+.quiz-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.05vw, 0.96rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #f1f5f9;
+}
+
+/* Correct State: Emerald Radiant Glow */
+.quiz-option-btn.is-correct {
+  background: linear-gradient(145deg, rgba(6, 78, 59, 0.9) 0%, rgba(16, 185, 129, 0.35) 100%) !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.65) !important;
+  transform: scale(1.025) !important;
+  animation: pulseCorrect 1.2s ease-in-out infinite alternate;
+}
+
+.quiz-option-btn.is-correct .quiz-letter {
+  background: #10b981 !important;
+  color: #fff !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 15px #10b981;
+}
+
+@keyframes pulseCorrect {
+  0% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+  100% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.85); }
+}
+
+/* Wrong State: Shake and gentle amber/red cue */
+.quiz-option-btn.is-wrong {
+  animation: shakeWrong 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  border-color: #f87171 !important;
+  background: linear-gradient(145deg, rgba(69, 10, 10, 0.8) 0%, rgba(239, 68, 68, 0.2) 100%) !important;
+}
+
+.quiz-option-btn.is-wrong .quiz-letter {
+  background: rgba(239, 68, 68, 0.25) !important;
+  color: #f87171 !important;
+  border-color: #f87171 !important;
+}
+
+@keyframes shakeWrong {
+  10%, 90% { transform: translate3d(-3px, 0, 0); }
+  20%, 80% { transform: translate3d(5px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-5px, 0, 0); }
+  40%, 60% { transform: translate3d(5px, 0, 0); }
+}
+
+/* Dynamic Feedback Box */
+.quiz-feedback-box {
+  display: none;
+  border-radius: 14px;
+  padding: 0.8rem 1.2rem;
+  margin-top: 0.2rem;
+  backdrop-filter: blur(12px);
+  animation: feedbackSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.quiz-feedback-box.visible {
+  display: block;
+}
+
+.quiz-feedback-box.is-correct-feedback {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.quiz-feedback-box.is-wrong-feedback {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+}
+
+.feedback-badge {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.is-correct-feedback .feedback-badge {
+  color: #34d399;
+}
+
+.is-wrong-feedback .feedback-badge {
+  color: #fbbf24;
+}
+
+.feedback-text {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #e2e8f0;
+}
+
+/* Next Question CTA Button */
+.quiz-next-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: #fff;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: fit-content;
+  margin-top: 0.4rem;
+  animation: feedbackSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.quiz-next-btn.visible {
+  display: inline-flex;
+}
+
+.quiz-next-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.85);
+}
+
+.quiz-next-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@keyframes feedbackSlideUp {
+  0% { opacity: 0; transform: translate3d(0, 16px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

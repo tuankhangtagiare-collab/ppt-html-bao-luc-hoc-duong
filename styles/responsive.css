@@ -1,0 +1,232 @@
+/* ==========================================================================
+   RESPONSIVE.CSS — Responsive Scaling, Slide Overview Grid & Accessibility
+   ========================================================================== */
+
+/* Slide Overview Grid Modal (Triggered by 'M' key or HUD button) */
+#overview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(3, 7, 18, 0.94);
+  backdrop-filter: blur(25px);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4vw;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  overflow-y: auto;
+}
+
+#overview-modal.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.overview-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.overview-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--bg-glass-border);
+  color: var(--text-primary);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.overview-close-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.overview-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease-morph), border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.overview-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 15px 35px rgba(6, 182, 212, 0.25);
+}
+
+.overview-card.is-current {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+}
+
+.overview-card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0b1329;
+  position: relative;
+  overflow: hidden;
+}
+
+.overview-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overview-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.overview-card-info {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.overview-card-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overview-card-chapter {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Presentation Mode (Key 'P' hides all HUD) */
+body.presentation-mode .hud-ui {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.presentation-mode {
+  cursor: none;
+}
+
+/* ==========================================================================
+   BREAKPOINTS: 1600x900, 1366x768, 1280x720
+   ========================================================================== */
+
+@media (max-width: 1600px) {
+  .slide {
+    padding: clamp(2rem, 4.2vh, 3.2rem) clamp(2rem, 4vw, 4rem) clamp(2.8rem, 5.5vh, 3.6rem);
+  }
+  .slide-title-hero {
+    font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  }
+  .categories-grid, .pathway-steps-grid {
+    gap: 1.15rem;
+  }
+  .category-card {
+    padding: 1.4rem 1.2rem;
+    max-height: clamp(190px, 30vh, 260px);
+  }
+}
+
+@media (max-width: 1366px) {
+  .slide {
+    padding: clamp(1.5rem, 3.5vh, 2.5rem) clamp(1.8rem, 3.5vw, 3rem) clamp(2.5rem, 5vh, 3.2rem);
+  }
+  .slide-title-hero {
+    font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+  }
+  .slide-title-section {
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  }
+  .slide-subtitle {
+    font-size: 0.95rem;
+  }
+  .slide-01-hero-card, .phone-mockup-wrapper, .student-orbit-center {
+    max-height: clamp(260px, 42vh, 380px);
+  }
+  .causes-triad-grid, .consequence-columns-grid, .pillars-alliance-grid {
+    gap: 1rem;
+  }
+  .cause-card, .consequence-col, .alliance-pillar-card {
+    padding: 1.2rem 1.1rem;
+    max-height: clamp(200px, 32vh, 280px);
+  }
+  .pathway-step-card {
+    padding: 1.1rem 1rem;
+    max-height: clamp(180px, 30vh, 260px);
+  }
+  .overview-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .slide {
+    padding: 3.5rem 3vw 3rem;
+  }
+  .slide-01-grid, .slide-05-layout, .slide-07-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .slide-01-hero-card, .student-orbit-center, .phone-mockup-wrapper {
+    display: none;
+  }
+  .categories-grid, .corridor-flow-chain, .pathway-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rules-shield-stage {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    height: auto;
+  }
+  .shield-center-pod {
+    order: -1;
+  }
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Removed prefers-reduced-motion to guarantee animations and 3D scenes play for the user */

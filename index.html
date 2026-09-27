@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BẠO LỰC HỌC ĐƯỜNG — Cinematic Web Presentation</title>
+  <meta name="description" content="Hiểu đúng – Ngăn chặn – Cùng xây dựng trường học an toàn. Bài thuyết trình tương tác 3D và Morph transitions cao cấp.">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;850&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/slides.css">
+  <link rel="stylesheet" href="/styles/morph.css">
+  <link rel="stylesheet" href="/styles/3d.css">
+  <link rel="stylesheet" href="/styles/responsive.css">
+</head>
+<body data-chapter-accent="crimson">
+
+  <!-- Presentation App Viewport -->
+  <div id="presentation-app">
+
+    <!-- Layered Background System with Thematic Slide Backdrops -->
+    <div class="bg-layer-system">
+      <div class="bg-layer-base"></div>
+
+      <!-- Thematic Atmospheric Slide Backdrops (1 to 17) -->
+      <div class="bg-backdrops-stage">
+        <div class="bg-backdrop-item is-active" data-backdrop="0">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=80" alt="" loading="eager" />
+          <div class="bg-backdrop-overlay theme-01"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="1">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1581726707445-75cbe4efc586?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-02"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="2">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1495433923968-85c6751d2df6?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-03"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="3">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1511297968426-a869b61af3da?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-04"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="4">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1514355315815-2b64b0216b14?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-05"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="5">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-06"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="6">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1597933471507-1ca5765185d8?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-07"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="7">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1586726370832-3440a511e479?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-08"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="8">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-09"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="9">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-10"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="10">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1599659593072-10de2e109486?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-11"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="11">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-12"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="12">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1597933471507-1ca5765185d8?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-13"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="13">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-14"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="14">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1586726370832-3440a511e479?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-15"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="15">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1599659593072-10de2e109486?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-16"></div>
+        </div>
+        <div class="bg-backdrop-item" data-backdrop="16">
+          <img class="bg-backdrop-img" src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+          <div class="bg-backdrop-overlay theme-17"></div>
+        </div>
+      </div>
+
+      <div class="bg-layer-glow"></div>
+      <div class="bg-layer-grain"></div>
+      <div class="bg-layer-vignette"></div>
+    </div>
+
+    <!-- Three.js 3D WebGL Canvas Layer -->
+    <canvas id="scene-3d-canvas"></canvas>
+
+    <!-- Morph Overlay Stage -->
+    <div id="morph-stage"></div>
+
+    <!-- Mouse Click Side Zones (Prev/Next) -->
+    <div class="click-zone left" title="Slide trước (← hoặc Backspace)"></div>
+    <div class="click-zone right" title="Slide tiếp theo (→ hoặc Space)"></div>
+
+
+    <!-- Minimal HUD & Controls Overlay -->
+    <div class="hud-ui">
+      <!-- Top Slim Progress Bar -->
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill"></div>
+      </div>
+
+      <!-- Header HUD -->
+      <header class="hud-header">
+        <div class="hud-brand">
+          <span class="brand-dot"></span>
+          <span class="brand-title">BẠO LỰC HỌC ĐƯỜNG</span>
+        </div>
+        <div class="hud-chapter-badge">01 / KHÁI NIỆM & TỔNG QUAN</div>
+      </header>
+
+      <!-- Footer HUD -->
+      <footer class="hud-footer">
+        <!-- Slide Counter -->
+        <div class="slide-counter">
+          <span class="counter-current">01</span>
+          <span class="counter-divider">/</span>
+          <span class="counter-total">17</span>
+        </div>
+
+        <!-- Controls -->
+        <div class="hud-controls">
+          <span class="keyboard-hint"><span class="kbd-tag">←</span> <span class="kbd-tag">→</span></span>
+
+          <button id="btn-prev" class="hud-btn" title="Slide trước (←)" aria-label="Previous Slide">
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+
+          <button id="btn-next" class="hud-btn" title="Slide kế tiếp (→)" aria-label="Next Slide">
+            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+
+          <button id="btn-overview" class="hud-btn" title="Xem tất cả Slide (Phím M)" aria-label="Overview Grid">
+            <svg viewBox="0 0 24 24"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></svg>
+          </button>
+
+          <button id="btn-audio" class="hud-btn" title="Bật/Tắt âm thanh hiệu ứng" aria-label="Audio Toggle">
+            <svg class="sound-off" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+            <svg class="sound-on" style="display:none;" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+
+          <button id="btn-fullscreen" class="hud-btn" title="Toàn màn hình (Phím F)" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+          </button>
+        </div>
+      </footer>
+    </div>
+
+    <!-- MAIN SLIDES STAGE -->
+    <div id="slides-stage" class="perspective-stage">
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 01: HERO OPENING                                     -->
+      <!-- ========================================================== -->
+      <section class="slide active" id="slide-01">
+        <div class="slide-content-wrap">
+          <div class="slide-01-grid">
+            <div class="slide-text-col">
+              <div class="anim-header">
+                <span class="slide-category-tag">CHỦ ĐỀ HỌC ĐƯỜNG ĐẶC BIỆT</span>
+                <h1 class="slide-title-hero">BẠO LỰC<br>HỌC ĐƯỜNG</h1>
+                <p class="slide-subtitle" style="margin-bottom: 1.5rem;">
+                  Hiểu đúng – Ngăn chặn – Cùng xây dựng trường học an toàn
+                </p>
+              </div>
+              <div class="slide-quote-banner anim-banner" data-morph="morph-banner">
+                “Một hành động có thể để lại một vết thương rất lâu.”
+              </div>
+            </div>
+
+            <div class="slide-visual-col">
+              <div class="hero-visual-card slide-01-hero-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=80" alt="Học sinh trong sân trường" loading="eager">
+                <div class="hero-silhouette-badge">
+                  <svg class="hero-shield-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                  <div class="hero-student-title">AN TOÀN HỌC ĐƯỜNG</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 02: BẠO LỰC HỌC ĐƯỜNG LÀ GÌ?                         -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-02">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag">01 / KHÁI NIỆM CƠ BẢN</span>
+                <h2 class="slide-title-section">BẠO LỰC HỌC ĐƯỜNG LÀ GÌ?</h2>
+                <div class="definition-glass-bar glass-card anim-banner" data-morph="morph-banner">
+                  <span class="definition-badge">ĐỊNH NGHĨA</span>
+                  <p class="definition-text">
+                    Là những hành vi cố ý gây tổn thương cho người khác trong môi trường học tập hoặc có liên quan đến trường học.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 4 Categories Grid (Staggered Entrance) -->
+              <div class="categories-grid-2x2">
+                <!-- Physical -->
+                <div class="category-card glass-card stagger-1">
+                  <div class="category-card-top">
+                    <span class="category-badge-num">01</span>
+                    <div class="category-icon-wrapper" style="color: var(--accent-crimson);">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="category-card-title">THỂ CHẤT</h3>
+                    <p class="category-card-desc">Đánh – đá – xô đẩy – gây tổn thương trực tiếp lên thân thể.</p>
+                  </div>
+                </div>
+
+                <!-- Verbal -->
+                <div class="category-card glass-card stagger-2">
+                  <div class="category-card-top">
+                    <span class="category-badge-num">02</span>
+                    <div class="category-icon-wrapper" style="color: var(--accent-amber);">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="category-card-title">TINH THẦN</h3>
+                    <p class="category-card-desc">Xúc phạm – đe dọa – cô lập – bôi nhọ danh dự và uy tín cá nhân.</p>
+                  </div>
+                </div>
+
+                <!-- Cyber -->
+                <div class="category-card glass-card stagger-3">
+                  <div class="category-card-top">
+                    <span class="category-badge-num">03</span>
+                    <div class="category-icon-wrapper" style="color: var(--accent-cyan);">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="category-card-title">TRÊN MẠNG</h3>
+                    <p class="category-card-desc">Công kích – tung tin đồn – lan truyền hình ảnh nhạy cảm trái phép.</p>
+                  </div>
+                </div>
+
+                <!-- Property -->
+                <div class="category-card glass-card stagger-4">
+                  <div class="category-card-top">
+                    <span class="category-badge-num">04</span>
+                    <div class="category-icon-wrapper" style="color: var(--accent-blue);">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="category-card-title">VẬT CHẤT</h3>
+                    <p class="category-card-desc">Phá hỏng đồ đạc – cướp giật – tống tiền – làm hư hại tài sản.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1581726707445-75cbe4efc586?auto=format&fit=crop&w=1600&q=80" alt="Các hình thức bạo lực" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title">4 HÌNH THỨC BẠO LỰC</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 03: BẠO LỰC CÓ THỂ XẢY RA Ở ĐÂU?                     -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-03">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag">02 / THỰC TRẠNG & ĐỊA ĐIỂM</span>
+                <h2 class="slide-title-section">BẠO LỰC CÓ THỂ XẢY RA Ở ĐÂU?</h2>
+                <div class="spatial-highlight-box glass-card anim-banner" data-morph="morph-banner">
+                  <div class="spatial-highlight-main">Bạo lực không chỉ xảy ra trong lớp học.</div>
+                  <div class="spatial-highlight-sub">Một sự việc bắt đầu ở trường có thể tiếp tục và khuếch đại không ngừng trên Internet.</div>
+                </div>
+              </div>
+
+              <!-- Spatial Corridor Flow (Staggered Entrance) -->
+              <div class="corridor-flow-chain">
+                <div class="flow-node-card glass-card stagger-1">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                  </div>
+                  <div class="flow-node-title">LỚP HỌC</div>
+                  <div class="flow-node-desc">Góc khuất, giờ ra chơi vắng giáo viên</div>
+                </div>
+
+                <div class="flow-node-card glass-card stagger-2">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="flow-node-title">SÂN TRƯỜNG</div>
+                  <div class="flow-node-desc">Sau khán đài, góc nhà thi đấu, bãi xe</div>
+                </div>
+
+                <div class="flow-node-card glass-card stagger-3">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                  <div class="flow-node-title">NHÀ VỆ SINH</div>
+                  <div class="flow-node-desc">Nơi hoàn toàn thiếu camera giám sát</div>
+                </div>
+
+                <div class="flow-node-card glass-card stagger-4">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                  </div>
+                  <div class="flow-node-title">ĐƯỜNG ĐI HỌC</div>
+                  <div class="flow-node-desc">Các ngõ ngách vắng, cổng sau trường</div>
+                </div>
+
+                <div class="flow-node-card glass-card stagger-5">
+                  <div class="flow-node-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                  </div>
+                  <div class="flow-node-title">MẠNG XÃ HỘI</div>
+                  <div class="flow-node-desc">Nhóm chat ẩn danh, diễn đàn 24/7</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1495433923968-85c6751d2df6?auto=format&fit=crop&w=1600&q=80" alt="Không gian nguy cơ" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title">KHÔNG GIAN NGUY CƠ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 04: VÌ SAO BẠO LỰC XẢY RA?                           -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-04">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag">02 / NGUYÊN NHÂN CỐT LÕI</span>
+                <h2 class="slide-title-section">VÌ SAO BẠO LỰC XẢY RA?</h2>
+                <div class="slide-quote-banner anim-banner" data-morph="morph-banner" style="border-color: var(--accent-amber); background: rgba(245, 158, 11, 0.08);">
+                  “KHÔNG CÓ CHỈ MỘT NGUYÊN NHÂN DUY NHẤT”
+                </div>
+              </div>
+
+              <!-- Triad Grid of Root Causes (Staggered Entrance) -->
+              <div class="causes-triad-grid" style="display:flex; flex-direction:column; gap:0.75rem;">
+                <!-- Personal -->
+                <div class="cause-card glass-card stagger-1">
+                  <div class="cause-card-header">
+                    <div class="cause-badge-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="cause-card-name">CÁ NHÂN</div>
+                  </div>
+                  <ul class="cause-list">
+                    <li>Khó kiểm soát cảm xúc bộc phát • Muốn thể hiện bản thân</li>
+                  </ul>
+                </div>
+
+                <!-- Family -->
+                <div class="cause-card glass-card stagger-2">
+                  <div class="cause-card-header">
+                    <div class="cause-badge-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                    </div>
+                    <div class="cause-card-name">GIA ĐÌNH</div>
+                  </div>
+                  <ul class="cause-list">
+                    <li>Thiếu sự quan tâm, lắng nghe • Môi trường gia đình căng thẳng</li>
+                  </ul>
+                </div>
+
+                <!-- Environment -->
+                <div class="cause-card glass-card stagger-3">
+                  <div class="cause-card-header">
+                    <div class="cause-badge-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                    </div>
+                    <div class="cause-card-name">MÔI TRƯỜNG</div>
+                  </div>
+                  <ul class="cause-list">
+                    <li>Áp lực bạn bè • Văn hóa mạng độc hại • Hùa theo đám đông</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1511297968426-a869b61af3da?auto=format&fit=crop&w=1600&q=80" alt="Nguyên nhân bạo lực" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title">NGUYÊN NHÂN CỐT LÕI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 05: CÓ THỂ BẠN ĐANG KHÔNG NHẬN RA                    -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-05">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag">03 / DẤU HIỆU CẢNH BÁO</span>
+                <h2 class="slide-title-hero" style="font-size: clamp(2rem, 3.4vw, 3rem);">CÓ THỂ BẠN<br>ĐANG KHÔNG<br>NHẬN RA</h2>
+                <div class="slide-quote-banner anim-banner" data-morph="morph-banner" style="border-color: var(--accent-amber); background: rgba(245, 158, 11, 0.08); margin-bottom: 1rem;">
+                  “Lắng nghe là bước đầu tiên để kịp thời nhận diện và bảo vệ.”
+                </div>
+              </div>
+
+              <!-- Warning Signs Grid (Staggered Entrance) -->
+              <div class="warning-signs-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:0.65rem;">
+                <div class="warning-sign-pill glass-card stagger-1">
+                  <div class="warning-sign-label">NGẠI ĐẾN TRƯỜNG</div>
+                  <div class="warning-sign-desc">Tìm lý do đau ốm để xin nghỉ học</div>
+                </div>
+
+                <div class="warning-sign-pill glass-card stagger-2">
+                  <div class="warning-sign-label">THU MÌNH</div>
+                  <div class="warning-sign-desc">Đột ngột ít nói, tránh chỗ đông người</div>
+                </div>
+
+                <div class="warning-sign-pill glass-card stagger-3">
+                  <div class="warning-sign-label">LO LẮNG</div>
+                  <div class="warning-sign-desc">Hoảng sợ khi nghe chuông báo tin nhắn</div>
+                </div>
+
+                <div class="warning-sign-pill glass-card stagger-4">
+                  <div class="warning-sign-label">HỌC TẬP THAY ĐỔI</div>
+                  <div class="warning-sign-desc">Điểm số sụt giảm bất thường</div>
+                </div>
+
+                <div class="warning-sign-pill glass-card stagger-5">
+                  <div class="warning-sign-label">MẤT ĐỒ</div>
+                  <div class="warning-sign-desc">Đồ dùng học tập hay bị rách hoặc mất</div>
+                </div>
+
+                <div class="warning-sign-pill glass-card stagger-6">
+                  <div class="warning-sign-label">NÉ TRÁNH</div>
+                  <div class="warning-sign-desc">Thay đổi đường đi, tránh bạn bè</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1514355315815-2b64b0216b14?auto=format&fit=crop&w=1600&q=80" alt="Dấu hiệu cảnh báo" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title">LẮNG NGHE ĐỂ THẤU HIỂU</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 06: BẠO LỰC ĐỂ LẠI HẬU QUẢ                           -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-06">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag">03 / HỆ LỤY SÂU SẮC</span>
+                <h2 class="slide-title-section">BẠO LỰC ĐỂ LẠI HẬU QUẢ</h2>
+                <div class="slide-quote-banner anim-banner" data-morph="morph-banner">
+                  “Hậu quả không kết thúc ngay khi sự việc kết thúc.”
+                </div>
+              </div>
+
+              <!-- 3 Consequence Columns (Staggered Entrance) -->
+              <div class="consequence-columns-grid" style="display:flex; flex-direction:column; gap:0.75rem;">
+                <!-- Victim -->
+                <div class="consequence-col victim glass-card stagger-1" style="padding:0.9rem 1.2rem;">
+                  <div class="consequence-col-header" style="margin-bottom:0.4rem;">
+                    <span class="consequence-role-tag">TỔN THƯƠNG SÂU SẮC</span>
+                    <h3 class="consequence-role-title" style="font-size:1.1rem;">NẠN NHÂN</h3>
+                  </div>
+                  <ul class="consequence-points-list" style="gap:0.35rem;">
+                    <li><strong>Thể chất & Tinh thần:</strong> Chấn thương, suy kiệt, trầm cảm, hoảng loạn kéo dài.</li>
+                  </ul>
+                </div>
+
+                <!-- Bully -->
+                <div class="consequence-col bully glass-card stagger-2" style="padding:0.9rem 1.2rem;">
+                  <div class="consequence-col-header" style="margin-bottom:0.4rem;">
+                    <span class="consequence-role-tag">HỆ LỤY TƯƠNG LAI</span>
+                    <h3 class="consequence-role-title" style="font-size:1.1rem;">NGƯỜI GÂY BẠO LỰC</h3>
+                  </div>
+                  <ul class="consequence-points-list" style="gap:0.35rem;">
+                    <li><strong>Kỷ luật & Xã hội:</strong> Đình chỉ học, vết xấu học bạ, bị bạn bè xa lánh, vi phạm pháp luật.</li>
+                  </ul>
+                </div>
+
+                <!-- Collective -->
+                <div class="consequence-col community glass-card stagger-3" style="padding:0.9rem 1.2rem;">
+                  <div class="consequence-col-header" style="margin-bottom:0.4rem;">
+                    <span class="consequence-role-tag">MÔI TRƯỜNG CHUNG</span>
+                    <h3 class="consequence-role-title" style="font-size:1.1rem;">TẬP THỂ</h3>
+                  </div>
+                  <ul class="consequence-points-list" style="gap:0.35rem;">
+                    <li><strong>Bất an & Xói mòn:</strong> Học sinh luôn lo sợ, tập thể thờ ơ, ảnh hưởng uy tín nhà trường.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80" alt="Hậu quả bạo lực" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title">HẬU QUẢ SÂU SẮC</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- ========================================================== -->
+      <!-- SLIDE 07: BẠO LỰC TRÊN MẠNG                                -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-07">
+        <div class="slide-content-wrap">
+          <div class="slide-07-layout">
+            <div class="slide-text-col">
+              <div class="anim-header">
+                <span class="slide-category-tag">04 / KHÔNG GIAN SỐ</span>
+                <h2 class="slide-title-hero" style="font-size: clamp(1.8rem, 3.2vw, 3rem);">“KHÔNG NHÌN THẤY”<br>KHÔNG CÓ NGHĨA LÀ<br>KHÔNG NGUY HIỂM</h2>
+                <p class="slide-subtitle" style="margin-bottom: 1rem;">
+                  Một bài đăng có thể lan truyền đến hàng nghìn người chỉ sau vài phút.
+                </p>
+              </div>
+
+              <!-- Toxic notifications list (Staggered Entrance) -->
+              <div class="cyber-toxic-bubbles-list">
+                <div class="toxic-bubble-item glass-card stagger-1">
+                  <span class="toxic-bubble-icon">⚠</span> BÌNH LUẬN XÚC PHẠM VÀ MIỆT THỊ
+                </div>
+                <div class="toxic-bubble-item glass-card stagger-2">
+                  <span class="toxic-bubble-icon">⚠</span> ẢNH & VIDEO BỊ ĐĂNG KHÔNG PHÉP
+                </div>
+                <div class="toxic-bubble-item glass-card stagger-3">
+                  <span class="toxic-bubble-icon">⚠</span> TIN ĐỒN THẤT THIỆT TRÊN HỘI NHÓM
+                </div>
+                <div class="toxic-bubble-item glass-card stagger-4">
+                  <span class="toxic-bubble-icon">⚠</span> CÔNG KÍCH VÀ TẨY CHAY TẬP THỂ
+                </div>
+                <div class="toxic-bubble-item glass-card stagger-5">
+                  <span class="toxic-bubble-icon">⚠</span> TIN NHẮN ĐE DỌA TRỰC TIẾP
+                </div>
+              </div>
+
+              <div class="slide-quote-banner anim-banner" data-morph="morph-banner">
+                “Tổn thương trên màn hình vẫn là tổn thương thật.”
+              </div>
+            </div>
+
+            <div class="phone-mockup-wrapper">
+              <div class="phone-mockup-3d" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1597933471507-1ca5765185d8?auto=format&fit=crop&w=1600&q=80" alt="Bạo lực mạng smartphone" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 08: NẾU CHỨNG KIẾN BẠO LỰC?                          -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-08">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag">04 / PHẢN ỨNG TỨC THỜI</span>
+                <h2 class="slide-title-section">NẾU CHỨNG KIẾN BẠO LỰC?</h2>
+                <div class="slide-quote-banner anim-banner" data-morph="morph-banner" style="border-color: var(--accent-cyan); background: rgba(6, 182, 212, 0.08);">
+                  “Đừng trở thành khán giả của bạo lực.”
+                </div>
+              </div>
+
+              <!-- Split DO / DON'T Grid (Staggered Entrance) -->
+              <div class="dodont-split-grid">
+                <!-- KHÔNG -->
+                <div class="dodont-card dont glass-card stagger-1" style="padding:1rem 1.2rem;">
+                  <div class="dodont-title" style="font-size:1.15rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    KHÔNG NÊN
+                  </div>
+                  <ul class="dodont-items-list" style="gap:0.4rem; font-size:0.85rem;">
+                    <li><span class="dodont-item-icon">✕</span> Cổ vũ hoặc kích động bạo lực</li>
+                    <li><span class="dodont-item-icon">✕</span> Hùa theo đám đông chế giễu</li>
+                    <li><span class="dodont-item-icon">✕</span> Quay video đăng câu tương tác</li>
+                    <li><span class="dodont-item-icon">✕</span> Thờ ơ, im lặng làm ngơ</li>
+                  </ul>
+                </div>
+
+                <!-- NÊN -->
+                <div class="dodont-card do glass-card stagger-2" style="padding:1rem 1.2rem;">
+                  <div class="dodont-title" style="font-size:1.15rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    NÊN LÀM
+                  </div>
+                  <ul class="dodont-items-list" style="gap:0.4rem; font-size:0.85rem;">
+                    <li><span class="dodont-item-icon">✓</span> Báo ngay cho giáo viên, bảo vệ</li>
+                    <li><span class="dodont-item-icon">✓</span> Hỗ trợ đưa bạn rời nơi nguy hiểm</li>
+                    <li><span class="dodont-item-icon">✓</span> Lưu giữ bằng chứng bảo mật</li>
+                    <li><span class="dodont-item-icon">✓</span> Ở bên cạnh động viên bạn</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1586726370832-3440a511e479?auto=format&fit=crop&w=1600&q=80" alt="Lựa chọn can đảm" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title">LỰA CHỌN CAN ĐẢM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 09: NẾU BẠN ĐANG BỊ BẠO LỰC?                         -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-09">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag">05 / BẢO VỆ CHÍNH MÌNH</span>
+                <h2 class="slide-title-section">NẾU BẠN ĐANG BỊ BẠO LỰC?</h2>
+                <div class="slide-quote-banner anim-banner" data-morph="morph-banner" style="border-color: var(--accent-cyan); background: rgba(6, 182, 212, 0.08);">
+                  “Nhờ giúp đỡ không phải là yếu đuối. Đó là hành động dũng cảm!”
+                </div>
+              </div>
+
+              <!-- 4 Pathway Steps (Staggered Entrance 01 -> 02 -> 03 -> 04) -->
+              <div class="pathway-steps-grid-2x2">
+                <div class="pathway-step-card glass-card stagger-1">
+                  <div>
+                    <div class="pathway-step-number">01</div>
+                    <h3 class="pathway-step-title">GIỮ AN TOÀN</h3>
+                  </div>
+                  <p class="pathway-step-detail">
+                    Bình tĩnh thoát khỏi tình huống, di chuyển đến nơi đông người, không đôi co một mình.
+                  </p>
+                </div>
+
+                <div class="pathway-step-card glass-card stagger-2">
+                  <div>
+                    <div class="pathway-step-number">02</div>
+                    <h3 class="pathway-step-title">NÓI RA</h3>
+                  </div>
+                  <p class="pathway-step-detail">
+                    Chia sẻ ngay với bố mẹ, thầy cô chủ nhiệm, cán bộ tư vấn hoặc người bạn thân tin cậy.
+                  </p>
+                </div>
+
+                <div class="pathway-step-card glass-card stagger-3">
+                  <div>
+                    <div class="pathway-step-number">03</div>
+                    <h3 class="pathway-step-title">LƯU BẰNG CHỨNG</h3>
+                  </div>
+                  <p class="pathway-step-detail">
+                    Chụp màn hình tin nhắn, ghi âm, ghi chú thời gian, địa điểm và danh tính người liên quan.
+                  </p>
+                </div>
+
+                <div class="pathway-step-card glass-card stagger-4">
+                  <div>
+                    <div class="pathway-step-number">04</div>
+                    <h3 class="pathway-step-title">KHÔNG TRẢ ĐŨA</h3>
+                  </div>
+                  <p class="pathway-step-detail">
+                    Không dùng bạo lực đáp trả bạo lực. Hãy để nhà trường và cơ quan chức năng xử lý.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80" alt="Lộ trình bảo vệ" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title">4 BƯỚC BẢO VỆ CHÍNH MÌNH</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 10: AI CŨNG CÓ PHẦN TRONG VIỆC NGĂN BẠO LỰC          -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-10">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag">05 / TRÁCH NHIỆM LIÊN KẾT</span>
+                <h2 class="slide-title-section">AI CŨNG CÓ TRÁCH NHIỆM</h2>
+                <div class="slide-quote-banner anim-banner" data-morph="morph-banner" style="border-color: var(--accent-cyan); background: rgba(6, 182, 212, 0.08); margin-bottom: 0.8rem;">
+                  “Một ngôi trường an toàn là sự phối hợp chặt chẽ của 3 trụ cột đồng hành.”
+                </div>
+              </div>
+
+              <!-- 3 United Pillars (Staggered Entrance) -->
+              <div class="pillars-alliance-grid" style="display:flex; flex-direction:column; gap:0.75rem;">
+                <!-- School -->
+                <div class="alliance-pillar-card glass-card stagger-1" style="padding:0.85rem 1.2rem;">
+                  <div>
+                    <h3 class="pillar-name-tag" style="font-size:1.05rem;">NHÀ TRƯỜNG</h3>
+                    <div class="pillar-role-subtitle" style="font-size:0.8rem;">Môi trường & Kỷ cương</div>
+                  </div>
+                  <ul class="pillar-actions-list" style="font-size:0.82rem; gap:0.25rem;">
+                    <li>Quy tắc ứng xử minh bạch • Kênh báo cáo bảo mật • Can thiệp sớm</li>
+                  </ul>
+                </div>
+
+                <!-- Family -->
+                <div class="alliance-pillar-card glass-card stagger-2" style="padding:0.85rem 1.2rem;">
+                  <div>
+                    <h3 class="pillar-name-tag" style="font-size:1.05rem;">GIA ĐÌNH</h3>
+                    <div class="pillar-role-subtitle" style="font-size:0.8rem;">Điểm tựa & Lắng nghe</div>
+                  </div>
+                  <ul class="pillar-actions-list" style="font-size:0.82rem; gap:0.25rem;">
+                    <li>Lắng nghe con cái • Quan sát tâm sinh lý • Làm gương ứng xử hòa nhã</li>
+                  </ul>
+                </div>
+
+                <!-- Students -->
+                <div class="alliance-pillar-card glass-card stagger-3" style="padding:0.85rem 1.2rem;">
+                  <div>
+                    <h3 class="pillar-name-tag" style="font-size:1.05rem;">HỌC SINH</h3>
+                    <div class="pillar-role-subtitle" style="font-size:0.8rem;">Tôn trọng & Đoàn kết</div>
+                  </div>
+                  <ul class="pillar-actions-list" style="font-size:0.82rem; gap:0.25rem;">
+                    <li>Tôn trọng khác biệt • Không cổ vũ bắt nạt • Dũng cảm lên tiếng</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80" alt="Trách nhiệm liên kết" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title">3 TRỤ CỘT ĐỒNG HÀNH</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 11: 3 KHÔNG — 3 NÊN (THE CENTRAL SHIELD)              -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-11">
+        <div class="slide-content-wrap">
+          <div class="slide-11-layout">
+            <div class="anim-header">
+              <span class="slide-category-tag">06 / NGUYÊN TẮC VÀNG</span>
+              <h2 class="slide-title-section">3 KHÔNG — 3 NÊN</h2>
+            </div>
+
+            <!-- Rules & Shield Stage (Staggered Entrance 1 to 7) -->
+            <div class="rules-shield-stage">
+              <!-- Left: 3 Không -->
+              <div class="rules-column">
+                <div class="rule-pill-box dont glass-card stagger-1">
+                  <span>✕</span> KHÔNG BẮT NẠT
+                </div>
+                <div class="rule-pill-box dont glass-card stagger-2">
+                  <span>✕</span> KHÔNG CỔ VŨ
+                </div>
+                <div class="rule-pill-box dont glass-card stagger-3">
+                  <span>✕</span> KHÔNG IM LẶNG
+                </div>
+              </div>
+
+              <!-- Center: Shield Visual -->
+              <div class="shield-center-pod glass-card stagger-4" data-morph="morph-hero" style="position:relative; overflow:hidden;">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1599659593072-10de2e109486?auto=format&fit=crop&w=1600&q=80" alt="Lá chắn an toàn" loading="lazy">
+                <svg class="emblem-shield-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.8" style="position:relative; z-index:4;">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+                <div class="hero-student-title" style="color: #6ee7b7; border-color: rgba(16, 185, 129, 0.4); position:relative; z-index:4;">
+                  LÁ CHẮN AN TOÀN
+                </div>
+              </div>
+
+              <!-- Right: 3 Nên -->
+              <div class="rules-column">
+                <div class="rule-pill-box do glass-card stagger-5">
+                  <span>✓</span> NÊN TÔN TRỌNG
+                </div>
+                <div class="rule-pill-box do glass-card stagger-6">
+                  <span>✓</span> NÊN LẮNG NGHE
+                </div>
+                <div class="rule-pill-box do glass-card stagger-7">
+                  <span>✓</span> NÊN GIÚP ĐỠ
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Tagline -->
+            <div class="bottom-rules-tagline glass-card anim-banner stagger-8" data-morph="morph-banner">
+              AN TOÀN – TÔN TRỌNG – ĐOÀN KẾT
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 12: CÂU HỎI 1 — NHẬN DIỆN BẠO LỰC TINH THẦN           -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-12">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="interactive-quiz-wrap">
+                <div class="quiz-progress-bar">
+                  <span class="quiz-pill-badge">THỬ THÁCH 01 / 05</span>
+                  <div class="quiz-dots-indicator">
+                    <span class="quiz-dot active"></span>
+                    <span class="quiz-dot"></span>
+                    <span class="quiz-dot"></span>
+                    <span class="quiz-dot"></span>
+                    <span class="quiz-dot"></span>
+                  </div>
+                </div>
+
+                <div class="anim-header">
+                  <span class="slide-category-tag" style="color: var(--accent-crimson);">07 / CÂU HỎI TƯƠNG TÁC</span>
+                  <h2 class="quiz-question-title">Hành vi nào dưới đây được coi là bạo lực học đường tinh thần?</h2>
+                </div>
+
+                <div class="quiz-options-grid">
+                  <button class="quiz-option-btn stagger-1" data-correct="false">
+                    <span class="quiz-letter">A</span>
+                    <span class="quiz-text">Cùng bạn bè thảo luận sôi nổi về một bài toán khó trên lớp</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-2" data-correct="true" data-explanation="Chính xác! Bạo lực tinh thần là hành vi cố ý cô lập, xúc phạm, tẩy chay hoặc tung tin đồn ác ý khiến nạn nhân tổn thương tâm lý sâu sắc.">
+                    <span class="quiz-letter">B</span>
+                    <span class="quiz-text">Cô lập, tẩy chay, lan truyền tin đồn ác ý về một bạn trong lớp</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-3" data-correct="false">
+                    <span class="quiz-letter">C</span>
+                    <span class="quiz-text">Vô tình va vào bạn ở hành lang rồi lập tức xin lỗi chân thành</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-4" data-correct="false">
+                    <span class="quiz-letter">D</span>
+                    <span class="quiz-text">Rủ bạn cùng tham gia câu lạc bộ bóng rổ của trường</span>
+                  </button>
+                </div>
+
+                <div class="quiz-feedback-box"></div>
+                <button class="quiz-next-btn" data-target="13">Tiếp Tục Sang Câu 2 ➔</button>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1581726707445-75cbe4efc586?auto=format&fit=crop&w=1600&q=80" alt="Nhận diện bạo lực" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title" style="color:#f87171; border-color: rgba(239, 68, 68, 0.4);">THỬ THÁCH 01/05</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 13: CÂU HỎI 2 — ỨNG XỬ VỚI BẠO LỰC MẠNG               -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-13">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="interactive-quiz-wrap">
+                <div class="quiz-progress-bar">
+                  <span class="quiz-pill-badge" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">THỬ THÁCH 02 / 05</span>
+                  <div class="quiz-dots-indicator">
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot active"></span>
+                    <span class="quiz-dot"></span>
+                    <span class="quiz-dot"></span>
+                    <span class="quiz-dot"></span>
+                  </div>
+                </div>
+
+                <div class="anim-header">
+                  <span class="slide-category-tag" style="color: var(--accent-cyan);">07 / CÂU HỎI TƯƠNG TÁC</span>
+                  <h2 class="quiz-question-title">Khi thấy nhóm chat đang công kích, chế giễu bạn cùng trường, bạn nên làm gì?</h2>
+                </div>
+
+                <div class="quiz-options-grid">
+                  <button class="quiz-option-btn stagger-1" data-correct="false">
+                    <span class="quiz-letter">A</span>
+                    <span class="quiz-text">Hùa theo bình luận chế giễu để không bị mọi người tẩy chay</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-2" data-correct="false">
+                    <span class="quiz-letter">B</span>
+                    <span class="quiz-text">Chụp màn hình gửi cho nhiều nhóm khác để cùng bàn tán</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-3" data-correct="true" data-explanation="Tuyệt vời! Không chia sẻ hay hùa theo, đồng thời lưu bằng chứng và báo cáo cho thầy cô là cách ngăn chặn bạo lực mạng văn minh và hiệu quả nhất.">
+                    <span class="quiz-letter">C</span>
+                    <span class="quiz-text">Không chia sẻ, khuyên can hoặc báo ngay cho thầy cô, phụ huynh</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-4" data-correct="false">
+                    <span class="quiz-letter">D</span>
+                    <span class="quiz-text">Thả tim hoặc bấm like bài viết để xem tiếp diễn biến</span>
+                  </button>
+                </div>
+
+                <div class="quiz-feedback-box"></div>
+                <button class="quiz-next-btn" data-target="14">Tiếp Tục Sang Câu 3 ➔</button>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1597933471507-1ca5765185d8?auto=format&fit=crop&w=1600&q=80" alt="Bạo lực mạng" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title" style="color:#38bdf8; border-color: rgba(56, 189, 248, 0.4);">THỬ THÁCH 02/05</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 14: CÂU HỎI 3 — KỸ NĂNG TỰ BẢO VỆ                     -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-14">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="interactive-quiz-wrap">
+                <div class="quiz-progress-bar">
+                  <span class="quiz-pill-badge" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">THỬ THÁCH 03 / 05</span>
+                  <div class="quiz-dots-indicator">
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot active"></span>
+                    <span class="quiz-dot"></span>
+                    <span class="quiz-dot"></span>
+                  </div>
+                </div>
+
+                <div class="anim-header">
+                  <span class="slide-category-tag" style="color: var(--accent-amber);">07 / CÂU HỎI TƯƠNG TÁC</span>
+                  <h2 class="quiz-question-title">Nếu không may trở thành nạn nhân bị bắt nạt, bước đầu tiên bạn nên làm là gì?</h2>
+                </div>
+
+                <div class="quiz-options-grid">
+                  <button class="quiz-option-btn stagger-1" data-correct="true" data-explanation="Rất chuẩn xác! Giữ an toàn là ưu tiên số 1: Bình tĩnh thoát khỏi tình huống nguy hiểm, di chuyển đến chỗ đông người và không đối đầu bạo lực một mình.">
+                    <span class="quiz-letter">A</span>
+                    <span class="quiz-text">Giữ an toàn, bình tĩnh thoát khỏi nơi nguy hiểm và tìm đến chỗ đông người</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-2" data-correct="false">
+                    <span class="quiz-letter">B</span>
+                    <span class="quiz-text">Một mình dùng nắm đấm đánh trả quyết liệt để trả thù</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-3" data-correct="false">
+                    <span class="quiz-letter">C</span>
+                    <span class="quiz-text">Giấu kín một mình vì cảm thấy xấu hổ và sợ hãi</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-4" data-correct="false">
+                    <span class="quiz-letter">D</span>
+                    <span class="quiz-text">Tự ý bỏ học ở nhà dài ngày mà không nói với ai</span>
+                  </button>
+                </div>
+
+                <div class="quiz-feedback-box"></div>
+                <button class="quiz-next-btn" data-target="15">Tiếp Tục Sang Câu 4 ➔</button>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80" alt="Lộ trình an toàn" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title" style="color:#fbbf24; border-color: rgba(245, 158, 11, 0.4);">THỬ THÁCH 03/05</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 15: CÂU HỎI 4 — NGƯỜI CHỨNG KIẾN CAN ĐẢM              -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-15">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="interactive-quiz-wrap">
+                <div class="quiz-progress-bar">
+                  <span class="quiz-pill-badge" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6);">THỬ THÁCH 04 / 05</span>
+                  <div class="quiz-dots-indicator">
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot active"></span>
+                    <span class="quiz-dot"></span>
+                  </div>
+                </div>
+
+                <div class="anim-header">
+                  <span class="slide-category-tag" style="color: var(--accent-blue);">07 / CÂU HỎI TƯƠNG TÁC</span>
+                  <h2 class="quiz-question-title">Chứng kiến một bạn yếu thế đang bị bắt nạt ở hành lang vắng, bạn nên làm gì?</h2>
+                </div>
+
+                <div class="quiz-options-grid">
+                  <button class="quiz-option-btn stagger-1" data-correct="false">
+                    <span class="quiz-letter">A</span>
+                    <span class="quiz-text">Đứng xem và quay video để đăng lên mạng xã hội câu lượt xem</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-2" data-correct="true" data-explanation="Chính xác! Người chứng kiến tích cực là lá chắn mạnh mẽ nhất: Lên tiếng can ngăn ôn hòa hoặc nhanh chóng tìm người lớn, bảo vệ can thiệp kịp thời.">
+                    <span class="quiz-letter">B</span>
+                    <span class="quiz-text">Lên tiếng can ngăn ôn hòa nếu an toàn, hoặc nhanh chóng tìm thầy cô can thiệp</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-3" data-correct="false">
+                    <span class="quiz-letter">C</span>
+                    <span class="quiz-text">Làm ngơ bỏ đi vì nghĩ chuyện đó không liên quan gì đến mình</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-4" data-correct="false">
+                    <span class="quiz-letter">D</span>
+                    <span class="quiz-text">Đứng cổ vũ nhóm bắt nạt để kết bạn với họ</span>
+                  </button>
+                </div>
+
+                <div class="quiz-feedback-box"></div>
+                <button class="quiz-next-btn" data-target="16">Tiếp Tục Sang Câu Cuối ➔</button>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1586726370832-3440a511e479?auto=format&fit=crop&w=1600&q=80" alt="Lựa chọn can đảm" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title" style="color:#60a5fa; border-color: rgba(59, 130, 246, 0.4);">THỬ THÁCH 04/05</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 16: CÂU HỎI 5 — CÙNG XÂY DỰNG TRƯỜNG HỌC HẠNH PHÚC   -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-16">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="interactive-quiz-wrap">
+                <div class="quiz-progress-bar">
+                  <span class="quiz-pill-badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">THỬ THÁCH 05 / 05</span>
+                  <div class="quiz-dots-indicator">
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot completed"></span>
+                    <span class="quiz-dot active"></span>
+                  </div>
+                </div>
+
+                <div class="anim-header">
+                  <span class="slide-category-tag" style="color: var(--accent-green);">07 / CÂU HỎI TƯƠNG TÁC</span>
+                  <h2 class="quiz-question-title">Yếu tố quan trọng nhất để xây dựng một trường học an toàn, không còn bạo lực?</h2>
+                </div>
+
+                <div class="quiz-options-grid">
+                  <button class="quiz-option-btn stagger-1" data-correct="false">
+                    <span class="quiz-letter">A</span>
+                    <span class="quiz-text">Chỉ cần lắp đặt thật nhiều camera giám sát và xử phạt thật nặng</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-2" data-correct="false">
+                    <span class="quiz-letter">B</span>
+                    <span class="quiz-text">Để học sinh tự giải quyết mọi mâu thuẫn bằng bạo lực</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-3" data-correct="true" data-explanation="Tuyệt vời nhất! Một ngôi trường an toàn và hạnh phúc chỉ có thể tạo nên từ sự tôn trọng, tình yêu thương và sự chung tay bền chặt của cả 3 trụ cột.">
+                    <span class="quiz-letter">C</span>
+                    <span class="quiz-text">Sự tôn trọng, lắng nghe và chung tay gắn kết giữa Nhà trường – Gia đình – Học sinh</span>
+                  </button>
+
+                  <button class="quiz-option-btn stagger-4" data-correct="false">
+                    <span class="quiz-letter">D</span>
+                    <span class="quiz-text">Cấm tuyệt đối học sinh giao lưu, kết bạn ngoài giờ học</span>
+                  </button>
+                </div>
+
+                <div class="quiz-feedback-box"></div>
+                <button class="quiz-next-btn" data-target="17">Xem Thông Điệp Kết Thúc ➔</button>
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1599659593072-10de2e109486?auto=format&fit=crop&w=1600&q=80" alt="Lá chắn an toàn" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title" style="color:#34d399; border-color: rgba(16, 185, 129, 0.4);">THỬ THÁCH 05/05</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- SLIDE 17: MỘT NGÔI TRƯỜNG AN TOÀN BẮT ĐẦU TỪ CHÚNG TA     -->
+      <!-- ========================================================== -->
+      <section class="slide" id="slide-17">
+        <div class="slide-content-wrap">
+          <div class="slide-two-col-layout">
+            <div class="slide-two-col-left">
+              <div class="anim-header">
+                <span class="slide-category-tag" style="color: var(--accent-green);">08 / THÔNG ĐIỆP KẾT THÚC</span>
+                <h2 class="slide-title-hero" style="color: #6ee7b7; text-shadow: 0 0 40px rgba(16, 185, 129, 0.4); font-size: clamp(2rem, 3.2vw, 3.2rem);">
+                  MỘT NGÔI TRƯỜNG AN TOÀN<br>BẮT ĐẦU TỪ CHÚNG TA
+                </h2>
+              </div>
+
+              <div class="finale-declarations stagger-1">
+                <p class="finale-claim">Không ai đáng bị xúc phạm hay cô lập.</p>
+                <p class="finale-claim">Mọi học sinh đều có quyền được an toàn khi đến trường.</p>
+              </div>
+
+              <!-- 3 Final Statements (Staggered Entrance) -->
+              <div class="finale-imperatives">
+                <div class="imperative-pill stagger-2">HÃY DỪNG BẠO LỰC</div>
+                <div class="imperative-pill stagger-3">HÃY LÊN TIẾNG</div>
+                <div class="imperative-pill stagger-4">HÃY BẢO VỆ NHAU</div>
+              </div>
+
+              <div class="closing-quote-banner anim-banner stagger-5" data-morph="morph-banner">
+                “Mỗi hành động tử tế hôm nay là một lá chắn bảo vệ tương lai ngày mai.”
+              </div>
+            </div>
+
+            <div class="slide-two-col-right">
+              <div class="hero-visual-card glass-card" data-morph="morph-hero">
+                <img class="slide-external-img" src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?auto=format&fit=crop&w=1600&q=80" alt="Trường học bình minh" loading="lazy">
+                <div class="hero-silhouette-badge">
+                  <div class="hero-student-title" style="color:#6ee7b7; border-color: rgba(16, 185, 129, 0.4);">TRƯỜNG HỌC HẠNH PHÚC</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /#slides-stage -->
+
+    <!-- SLIDE OVERVIEW GRID MODAL (Triggered by 'M') -->
+    <div id="overview-modal">
+      <div class="overview-header">
+        <div class="overview-title">TỔNG QUAN TẤT CẢ CÁC SLIDE (17 SLIDES)</div>
+        <button id="btn-close-overview" class="overview-close-btn">Đóng (ESC)</button>
+      </div>
+      <div class="overview-grid">
+        <!-- Rendered dynamically by presentation.js -->
+      </div>
+    </div>
+
+  </div><!-- /#presentation-app -->
+
+  <!-- Application Entry Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
